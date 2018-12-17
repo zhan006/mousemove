@@ -1,0 +1,201 @@
+<html>
+<head>
+
+<script>
+function direction(){
+var x=getX()
+ix=x.toString()
+var y=getY()
+iy=y.toString()
+var event=event || window.event;
+setTimeout(function(){var mx=x-parseInt(ix);var my=y-parseInt(iy);
+if(mx>0&Math.abs(my)<10){
+/*image=document.getElementById("img");
+
+image.src='left.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=180
+
+
+};
+if(mx<0&Math.abs(my)<10){
+/*image=document.getElementById("img");
+
+image.src='right.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=0
+
+
+};
+if(Math.abs(mx)<10&my>0){
+/*image=document.getElementById("img");
+
+image.src='up.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=-90
+
+
+};
+if(Math.abs(mx)<10&my<0){
+/*image=document.getElementById("img");
+
+image.src='down.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=90
+
+
+};
+if(mx>0&my>10){
+/*image=document.getElementById("img");
+
+image.src='upleft.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=-135
+
+
+};
+if(mx<0&my>10){
+/*image=document.getElementById("img");
+
+image.src='upright.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=-45
+
+};
+if(mx>0&my<-10){
+/*image=document.getElementById("img");
+
+image.src='downleft.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=135
+
+
+};
+if(mx<0&my<-10){
+/*image=document.getElementById("img");
+
+image.src='downright.jpg'
+imageleft=x-image.offsetWidth/2;
+
+imageheight=y-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;*/
+str=45
+
+
+};
+
+},20)
+return str}
+
+function showdir(){
+str=direction()
+var x=getX()
+var y=getY()
+att=str+'deg'
+img=document.getElementById('img')
+img.style.webkitTransform = "rotate("+att+")"
+imageleft=x-img.offsetWidth/2;
+
+imageheight=y-img.offsetHeight/2;
+
+img.style.top=imageheight;
+
+img.style.left=imageleft;
+
+console.log(str)
+}
+function getX(){
+var event=event || window.event
+var currentX=event.clientX
+var currentY=event.clientY
+return currentX}
+function getY(){
+var event=event || window.event
+var currentX=event.clientX
+var currentY=event.clientY
+return currentY}
+
+</script><style>
+#img{width:80px;height:80px;position:absolute;top=0;left=0}
+#imag{width:80px;height:80px;position:absolute;top=0;left=0}
+</style>
+
+</head>
+<body onmousemove="showdir()">
+<div id=img>
+<img src="./right.jpg" id="imag">
+</div>
+</body>
+
+<script>
+
+function mousemove(){
+var event=event || window.event;
+
+mouseleft=event.clientX;
+
+mouseheight=event.clientY;
+
+dir=direction();
+console.log(dir)
+image=document.getElementById("img");
+
+
+image.src=direction+'.jpg'
+imageleft=mouseleft-image.offsetWidth/2;
+
+imageheight=mouseheight-image.offsetHeight/2;
+
+image.style.top=imageheight;
+
+image.style.left=imageleft;
+
+}
+
+</script>
+</html>
