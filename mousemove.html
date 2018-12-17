@@ -7,16 +7,17 @@ var x=getX()
 ix=x.toString()
 var y=getY()
 iy=y.toString()
+
 var event=event || window.event;
 setTimeout(function(){var mx=x-parseInt(ix);var my=y-parseInt(iy);
-if(mx>0&Math.abs(my)<10){
+/*if(mx>0&Math.abs(my)<10){
 str=180
 };
 if(mx<0&Math.abs(my)<10){
 str=0
 };
 if(Math.abs(mx)<10&my>0){
-str=-90
+
 };
 if(Math.abs(mx)<10&my<0){
 str=90
@@ -32,13 +33,38 @@ str=135
 };
 if(mx<0&my<-10){
 str=45
-};
+};*/
+//console.log(mx,my)
 
+//upleft
+if(mx>0&my>0){
+str=Math.atan(my/mx)+3.1416926
+}
+//downright
+else if(mx<0&my<=0){
+str=Math.atan(my/mx)
+}
+//upright
+else if(mx<0&my>=0){
+str=Math.atan(my/mx)
+}
+//downleft
+else if(mx>0&my<=0){
+str=Math.atan(my/mx)+3.1415926
+}
+else if(mx=0&my>=0){
+str=-1.57
+}
+else if(mx=0&my<=0){
+str=1.57
+}
 },20)
+console.log(str)
 return str}
 
 function showdir(){
 str=direction()
+str=str/3.1415926*180
 var x=getX()
 var y=getY()
 att=str+'deg'
@@ -52,7 +78,7 @@ img.style.top=imageheight;
 
 img.style.left=imageleft;
 
-console.log(str)
+//console.log(att)
 }
 function getX(){
 var event=event || window.event
